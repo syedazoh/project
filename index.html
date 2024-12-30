@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{{ url_for('add_reminder') }}">Add Reminder</a>
+<ul>
+    {% for reminder in reminders %}
+    <li>
+        <strong>{{ reminder.title }}</strong> - {{ reminder.due_date }}<br>
+        {{ reminder.description }}<br>
+        <a href="{{ url_for('delete_reminder', index=loop.index0) }}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
